@@ -2,16 +2,16 @@
 
 :root {
   --color-white: #ffffff;
-  --color-white: #f7f8fa;
-  --color-white: #ffffff;
+  --color-dark-white: #f7f8fa;
+  --color-white-10: rgba(89, 177, 122, 0.1);
   --color-black: #1d1e21;
   --color-green: #59b17a;
 }
 
 body {
-  font-family: "Gilroy", sans-serif;
-  color: var(--color-white);
-  background-color: var(--color-black);
+  font-family: "Inter", sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-dark-white);
 }
 
 html,
