@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 302px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actionButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link {
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    height: 240px;
+    max-width: 323px;
+  }
+  .inputsWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+    gap: 14px;
+  }
+  .actionButtonsWrapper {
+    max-width: 280px;
+  }
+}

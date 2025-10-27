@@ -1,13 +1,11 @@
 import { useForm } from "react-hook-form";
-import css from "./LoginForm.module.css";
+import css from "./RegisterForm.module.css";
 import BaseInput from "../../../shared/ui/Input/BaseInput/BaseInput";
 import Button from "../../../shared/ui/Button/Button";
 import { Link } from "react-router-dom";
 
-const LoginForm = () => {
-  // const dispatch = useDispatch();
+const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
-
   return (
     <form
       className={css.form}
@@ -16,9 +14,21 @@ const LoginForm = () => {
       <div className={css.inputsWrapper}>
         <BaseInput
           variant="primary"
+          type="text"
+          placeholder="User Name"
+          {...register("name")}
+        />
+        <BaseInput
+          variant="primary"
           type="email"
           placeholder="Email address"
           {...register("email")}
+        />
+        <BaseInput
+          variant="primary"
+          type="tel"
+          placeholder="Phone number"
+          {...register("phone")}
         />
         <BaseInput
           variant="primary"
@@ -28,13 +38,13 @@ const LoginForm = () => {
         />
       </div>
       <div className={css.actionButtonsWrapper}>
-        <Button variant="primary" text="Log in" type="submit" />
-        <Link className={css.link} to="/register">
-          Don't have an account?
+        <Button variant="primary" text="Register" type="submit" />
+        <Link className={css.link} to="/login">
+          Already have an account?
         </Link>
       </div>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

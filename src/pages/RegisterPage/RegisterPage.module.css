@@ -1,0 +1,18 @@
+.pageWrapper {
+  padding: 81px 0 191px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .pageWrapper {
+    padding: 140px 0 250px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pageWrapper {
+    padding: 198px 0 262px 0;
+    display: grid;
+    grid-template-columns: 614px 1fr;
+    gap: 54px;
+  }
+}
