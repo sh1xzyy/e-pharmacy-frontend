@@ -2,7 +2,7 @@ import clsx from "clsx";
 import css from "./BaseInput.module.css";
 import { forwardRef } from "react";
 
-const BaseInput = forwardRef(({ variant, ...rest }, ref) => {
+const BaseInput = forwardRef(({ variant, error, ...rest }, ref) => {
   return (
     <>
       {rest?.label && (
@@ -10,15 +10,18 @@ const BaseInput = forwardRef(({ variant, ...rest }, ref) => {
           {rest.label}
         </label>
       )}
-      <input
-        className={clsx(
-          css.input,
-          variant === "primary" && css.primary,
-          variant === "normal" && css.normal
-        )}
-        ref={ref}
-        {...rest}
-      />
+      <div className={css.inputWrapper}>
+        <input
+          className={clsx(
+            css.input,
+            variant === "primary" && css.primary,
+            variant === "normal" && css.normal
+          )}
+          ref={ref}
+          {...rest}
+        />
+        {error && <span className={css.error}>{error}</span>}
+      </div>
     </>
   );
 });

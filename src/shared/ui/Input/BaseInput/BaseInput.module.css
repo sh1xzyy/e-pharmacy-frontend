@@ -29,3 +29,17 @@
   color: #1d1e21;
   margin-bottom: 8px;
 }
+
+.inputWrapper {
+  position: relative;
+}
+
+.error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  position: absolute;
+  bottom: -16px;
+  left: 18px;
+  color: red;
+}

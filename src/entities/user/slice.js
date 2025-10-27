@@ -1,10 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { loginUserThunk } from "./operations";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
+    user: {
+      image: null,
+      name: null,
+      email: null,
+      spent: null,
+      phone: null,
+      address: null,
+      accessToken: null,
+      refreshToken: null,
+    },
     isLoggedIn: false,
     isLoading: false,
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUserThunk.fulfilled, (state, action) => {
+        state.user = action.payload.data.user;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+      })
+      .addMatcher(
+        isAnyOf(loginUserThunk.pending, (state) => {
+          state.isLoading = true;
+        })
+      )
+      .addMatcher(
+        isAnyOf(loginUserThunk.rejected, (state) => {
+          state.isLoading = false;
+        })
+      );
   },
 });
 
