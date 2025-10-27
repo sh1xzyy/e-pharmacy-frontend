@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import css from "./BaseInput.module.css";
-const BaseInput = ({ variant, value, onChange, ref, ...rest }) => {
+import { forwardRef } from "react";
+
+const BaseInput = forwardRef(({ variant, ...rest }, ref) => {
   return (
-    <div>
+    <>
       {rest?.label && (
         <label className={css.label} htmlFor={rest?.id}>
           {rest.label}
@@ -14,14 +16,11 @@ const BaseInput = ({ variant, value, onChange, ref, ...rest }) => {
           variant === "primary" && css.primary,
           variant === "normal" && css.normal
         )}
-        onChange={onChange}
-        value={value}
         ref={ref}
-        id={rest?.id}
         {...rest}
       />
-    </div>
+    </>
   );
-};
+});
 
 export default BaseInput;

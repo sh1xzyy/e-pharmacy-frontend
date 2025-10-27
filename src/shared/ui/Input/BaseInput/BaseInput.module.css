@@ -6,6 +6,7 @@
   font-size: 12px;
   line-height: 1.5;
   color: #1d1e21;
+  padding: 0 18px;
 
   &::placeholder {
     font-weight: 400;
