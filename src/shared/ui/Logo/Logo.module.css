@@ -1,0 +1,21 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoText {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: #1d1e21;
+}
+
+@media screen and (min-width: 768px) {
+  .logoWrapper {
+    gap: 14px;
+  }
+  .logoText {
+    font-size: 20px;
+  }
+}
