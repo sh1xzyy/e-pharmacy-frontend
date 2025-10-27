@@ -12,3 +12,18 @@ export const loginUserThunk = createAsyncThunk(
     }
   }
 );
+
+export const registerUserThunk = createAsyncThunk(
+  "/user/register",
+  async (body, thunkAPI) => {
+    try {
+      const response = await authInstance.post("/user/register", body);
+      thunkAPI.dispatch(
+        loginUserThunk({ email: body.email, password: body.password })
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
+  }
+);

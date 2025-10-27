@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import css from "./LoginForm.module.css";
 import BaseInput from "../../../shared/ui/Input/BaseInput/BaseInput";
 import Button from "../../../shared/ui/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUserThunk } from "../../../entities/user/operations";
 import toast from "react-hot-toast";
@@ -11,6 +11,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -23,8 +25,9 @@ const LoginForm = () => {
   const onSubmit = async (values) => {
     try {
       const response = await dispatch(loginUserThunk(values)).unwrap();
-      toast.success(`Welcome back, ${response.user.name}!`);
+      toast.success(`Welcome back, ${response.data.user.name}!`);
       reset();
+      navigate("/");
     } catch (error) {
       toast.error(error?.data?.message);
     }
