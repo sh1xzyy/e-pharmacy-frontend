@@ -10,7 +10,7 @@ const HealthCareCard = () => {
       <picture>
         <source
           srcSet="/auth/pill-desktop@1x.png 1x, /auth/pill-desktop@2x.png 2x"
-          media="(min-width: 1280px)"
+          media="(min-width: 1440px)"
         />
         <source
           srcSet="/auth/pill-tablet@1x.png 1x, /auth/pill-tablet@2x.png 2x"
