@@ -1,5 +1,7 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import Loader from "../shared/ui/Loader/Loader";
+
 const CreateShopPage = lazy(() =>
   import("../pages/CreateShopPage/CreateShopPage")
 );
@@ -15,16 +17,18 @@ const StatisticsPage = lazy(() =>
 
 function App() {
   return (
-    <Routes>
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<SharedLayout />} />
-      <Route path="/create-shop" element={<CreateShopPage />} />
-      <Route path="/edit-shop" element={<EditShopPage />} />
-      <Route path="/shop" element={<MedicinePage />} />
-      <Route path="/medicine" element={<ShopPage />} />
-      <Route path="/statistics" element={<StatisticsPage />} />
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<SharedLayout />} />
+        <Route path="/create-shop" element={<CreateShopPage />} />
+        <Route path="/edit-shop" element={<EditShopPage />} />
+        <Route path="/shop" element={<MedicinePage />} />
+        <Route path="/medicine" element={<ShopPage />} />
+        <Route path="/statistics" element={<StatisticsPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 

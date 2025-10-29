@@ -29,6 +29,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isLoading = false;
       })
+
       .addMatcher(
         isAnyOf(loginUserThunk.pending, registerUserThunk.pending, (state) => {
           state.isLoading = true;
