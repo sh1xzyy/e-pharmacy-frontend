@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import css from "./Logo.module.css";
 
 const Logo = () => {
   return (
-    <div className={css.logoWrapper}>
+    <Link className={css.logoWrapper} to="/">
       <picture>
         <source
           srcSet="/logo/logo-tablet@1x.png 1x, /logo/logo-tablet@2x.png 2x"
@@ -17,7 +18,7 @@ const Logo = () => {
       </picture>
 
       <span className={css.logoText}>E-pharmacy</span>
-    </div>
+    </Link>
   );
 };
 

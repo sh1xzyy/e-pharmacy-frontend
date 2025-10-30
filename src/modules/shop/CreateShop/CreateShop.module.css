@@ -1,0 +1,30 @@
+.textWrapper {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #1d1e21;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #6a6a6f;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

@@ -1,0 +1,21 @@
+.inputsWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.buttonWrapper {
+  max-width: 155px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .inputsWrapper {
+    grid-template-columns: repeat(3, 200px);
+    gap: 24px 14px;
+  }
+
+  .buttonWrapper {
+    max-width: 167px;
+  }
+}
