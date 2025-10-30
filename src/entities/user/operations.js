@@ -27,3 +27,26 @@ export const registerUserThunk = createAsyncThunk(
     }
   }
 );
+
+export const logoutUserThunk = createAsyncThunk(
+  "/user/logout",
+  async (_, thunkAPI) => {
+    try {
+      const accessToken = thunkAPI.getState().auth.user.accessToken;
+      console.log(accessToken);
+
+      if (!accessToken) {
+        return thunkAPI.rejectWithValue("No accessToken");
+      }
+
+      const response = await authInstance.get("/user/logout", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
+  }
+);

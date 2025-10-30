@@ -9,7 +9,8 @@ const Button = ({ variant, text, ...rest }) => {
         variant === "primary" && css.primary,
         variant === "secondary" && css.secondary,
         variant === "neutral" && css.neutral,
-        variant === "outline" && css.outline
+        variant === "outline" && css.outline,
+        variant === "logout" && css.logout
       )}
       {...rest}
     >

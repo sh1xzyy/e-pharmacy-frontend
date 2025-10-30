@@ -1,0 +1,144 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+.burgerMenu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 210px;
+  height: 100%;
+  background-color: #59b17a;
+  padding: 280px 38px 40px 38px;
+}
+
+.openBurgerMenuBtn {
+  background-color: transparent;
+}
+
+.closeBurgerMenuBtn {
+  position: absolute;
+  top: 31px;
+  right: 20px;
+  background-color: transparent;
+}
+
+.burgerNav {
+  width: 100%;
+}
+
+.navList {
+  display: flex;
+  gap: 1px;
+}
+
+.navItem {
+  width: 100%;
+}
+
+.navItem:nth-child(1) .headerLink {
+  width: 96px;
+}
+
+.navItem:nth-child(2) .headerLink {
+  width: 119px;
+}
+
+.navItem:nth-child(3) .headerLink {
+  width: 112px;
+}
+
+.burgerMenuNavList {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto;
+  gap: 2px;
+}
+
+.burgerMenuNavItem {
+  position: relative;
+
+  &:not(:last-child)::after {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 16px;
+    bottom: -3px;
+    left: 50%;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    transform: translateX(-50%);
+    background-color: #f1f1f1;
+    z-index: 1;
+  }
+  &:first-child {
+    width: 96px;
+    margin: auto;
+  }
+  &:last-child {
+    width: 112px;
+    margin: auto;
+  }
+}
+
+.headerLink,
+.burgerLink {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: #93939a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: 1px solid #f1f1f1;
+  height: 46px;
+  background-color: #fff;
+  transition: all 250ms linear;
+
+  &:not(:last-child)::after {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 16px;
+    bottom: -4px;
+    left: 50%;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    transform: translateX(-50%);
+    background-color: #f1f1f1;
+    z-index: 1;
+  }
+
+  &.active::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    height: 70%;
+    width: 85%;
+    border-radius: 24px;
+    transform: translate(-50%, -50%);
+    background-color: #59b17a;
+    z-index: 0;
+  }
+
+  &.active span {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 28px;
+  }
+}
