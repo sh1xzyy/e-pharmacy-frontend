@@ -1,15 +1,15 @@
 .logoWrapper {
-  padding: 25px 0;
+  padding-top: 25px;
 }
 
 @media screen and (min-width: 768px) {
   .logoWrapper {
-    padding: 28px 0;
+    padding-top: 28px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .logoWrapper {
-    padding: 29px 0;
+    padding-top: 29px;
   }
 }
