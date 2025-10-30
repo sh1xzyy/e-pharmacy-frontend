@@ -1,0 +1,31 @@
+.card {
+  background-color: #fff;
+
+  &.base {
+    border-radius: 27px;
+    padding: 40px 20px;
+  }
+
+  &.primary {
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card .base {
+    padding: 40px 38px;
+  }
+
+  .card .primary {
+    border-radius: 27px;
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card .base,
+  .card .primary {
+    padding: 40px;
+  }
+}
