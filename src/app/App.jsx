@@ -20,9 +20,11 @@ const StatisticsPage = lazy(() =>
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  console.log(isLoggedIn);
+
   return (
     <>
-      {isLoggedIn && <Header />}
+      {!isLoggedIn && <Header />}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/register" element={<RegisterPage />} />

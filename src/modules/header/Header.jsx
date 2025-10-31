@@ -15,14 +15,14 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const burgerNavList = [
-    { text: "Home", to: "/" },
-    { text: "Medicine store", to: "/store" },
+    { text: "Shop", to: "/create-shop" },
+    { text: "Medicine store", to: "/medicine" },
     { text: "Medicine", to: "/medicine" },
   ];
 
   const headerNavList = [
-    { text: "Home", to: "/" },
-    { text: "Medicine", to: "/store" },
+    { text: "Shop", to: "/create-shop" },
+    { text: "Medicine", to: "/medicine" },
     { text: "Statistics", to: "/statistics" },
   ];
 
