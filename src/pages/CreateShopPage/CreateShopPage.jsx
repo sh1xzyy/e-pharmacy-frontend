@@ -1,11 +1,15 @@
 import CreateShop from "../../modules/shop/CreateShop/CreateShop";
+import ShopImage from "../../modules/shop/ShopImage/ShopImage";
 import css from "./CreateShopPage.module.css";
 
 const CreateShopPage = () => {
   return (
     <div className={css.pageWrapper}>
       <div className="container">
-        <CreateShop />
+        <div className={css.wrapper}>
+          <CreateShop />
+          <ShopImage />
+        </div>
       </div>
     </div>
   );

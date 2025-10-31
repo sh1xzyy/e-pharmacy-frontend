@@ -4,6 +4,8 @@ import css from "./ShopForm.module.css";
 import { shopSchema } from "../schemas/shopSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "../../../shared/ui/Button/Button";
+import { useState } from "react";
+import clsx from "clsx";
 
 const ShopForm = ({ type, onSubmit }) => {
   const {
@@ -13,6 +15,7 @@ const ShopForm = ({ type, onSubmit }) => {
   } = useForm({
     resolver: yupResolver(shopSchema),
   });
+  const [selectedRadio, setSelectedRadio] = useState("yes");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -74,10 +77,47 @@ const ShopForm = ({ type, onSubmit }) => {
           error={errors?.zip}
         />
       </div>
+
+      <div className={css.radiosWrapper}>
+        <h3 className={css.radioTitle}>Has own Delivery System?</h3>
+
+        <div className={css.radioBtnsWrapper}>
+          {["yes", "no"].map((option) => (
+            <div key={option} className={css.radioWrapper}>
+              <input
+                className="visually-hidden"
+                type="radio"
+                name="deliverySystem"
+                id={option}
+                value={option}
+                checked={selectedRadio === option}
+                onChange={() => setSelectedRadio(option)}
+              />
+
+              <label
+                htmlFor={option}
+                className={clsx(
+                  css.radioLabel,
+                  selectedRadio === option && css.activeLabel
+                )}
+              >
+                <div
+                  className={clsx(
+                    css.customRadio,
+                    selectedRadio === option && css.activeRadio
+                  )}
+                />
+                {option === "yes" ? "Yes" : "No"}
+              </label>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className={css.buttonWrapper}>
         <Button
           variant="primary"
-          text={type === "createShop" ? "Create account" : "Edit data"}
+          text={type === "createShop" ? "Create account" : "Save"}
           type="submit"
         />
       </div>

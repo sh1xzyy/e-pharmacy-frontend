@@ -2,6 +2,11 @@
   padding: 64px 0;
 }
 
+.wrapper {
+  display: grid;
+  gap: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .pageWrapper {
     padding: 80px 0;
@@ -9,6 +14,9 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .wrapper {
+    grid-template-columns: 704px 456px;
+  }
   .pageWrapper {
     padding: 64px 0;
   }
