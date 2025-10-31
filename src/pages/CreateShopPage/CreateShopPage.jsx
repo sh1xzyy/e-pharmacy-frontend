@@ -1,5 +1,4 @@
-import CreateShop from "../../modules/shop/CreateShop/CreateShop";
-import ShopImage from "../../modules/shop/ShopImage/ShopImage";
+import { CreateShop, ShopImage } from "../../modules/shop";
 import css from "./CreateShopPage.module.css";
 
 const CreateShopPage = () => {

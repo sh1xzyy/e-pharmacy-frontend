@@ -28,6 +28,25 @@ export const registerUserThunk = createAsyncThunk(
   }
 );
 
+export const refreshUserThunk = createAsyncThunk(
+  "/user/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const refreshToken = thunkAPI.getState().auth.user.refreshToken;
+      if (!refreshToken) {
+        return thunkAPI.rejectWithValue("No refreshToken");
+      }
+
+      const response = await authInstance.post("/user/refresh", null, {
+        withCredentials: true,
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
 export const logoutUserThunk = createAsyncThunk(
   "/user/logout",
   async (_, thunkAPI) => {

@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/user/selectors";
-import Header from "../modules/header/Header";
+import Header from "../components/Header/Header";
+import { refreshUserThunk } from "../entities/user/operations";
 
 const CreateShopPage = lazy(() =>
   import("../pages/CreateShopPage/CreateShopPage")
@@ -20,11 +21,15 @@ const StatisticsPage = lazy(() =>
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  console.log(isLoggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
 
   return (
     <>
-      {!isLoggedIn && <Header />}
+      {isLoggedIn && <Header />}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/register" element={<RegisterPage />} />
