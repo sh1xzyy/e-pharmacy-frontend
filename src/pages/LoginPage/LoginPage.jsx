@@ -1,5 +1,4 @@
-import HealthCareCard from "../../modules/auth/HealthCareCard/HealthCareCard";
-import LoginForm from "../../modules/auth/LoginForm/LoginForm";
+import { HealthCareCard, LoginForm } from "../../modules/auth";
 import LogoWrapper from "../../modules/auth/LogoWrapper/LogoWrapper";
 import css from "./LoginPage.module.css";
 

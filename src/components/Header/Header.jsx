@@ -1,13 +1,13 @@
 import css from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import Logo from "../../shared/ui/Logo/Logo";
 import { useState } from "react";
-import Button from "../../shared/ui/Button/Button";
 import clsx from "clsx";
-import useWindowWidth from "../../shared/hooks/useWindowWidth";
 import { useDispatch } from "react-redux";
-import { logoutUserThunk } from "../../entities/user/operations";
 import toast from "react-hot-toast";
+import { logoutUserThunk } from "../../entities/user/operations";
+import useWindowWidth from "../../shared/hooks/useWindowWidth";
+import Logo from "../../shared/ui/Logo/Logo";
+import Button from "../../shared/ui/Button/Button";
 
 const Header = () => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);

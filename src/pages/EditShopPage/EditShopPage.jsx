@@ -1,5 +1,4 @@
-import EditShop from "../../modules/shop/EditShop/EditShop";
-import ShopImage from "../../modules/shop/ShopImage/ShopImage";
+import { EditShop, ShopImage } from "../../modules/shop";
 import css from "./EditShopPage.module.css";
 
 const EditShopPage = () => {

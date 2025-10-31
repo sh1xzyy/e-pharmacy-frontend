@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Loader from "../shared/ui/Loader/Loader";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../entities/user/selectors";
-import Header from "../modules/header/Header";
+import Header from "../components/Header/Header";
 
 const CreateShopPage = lazy(() =>
   import("../pages/CreateShopPage/CreateShopPage")
