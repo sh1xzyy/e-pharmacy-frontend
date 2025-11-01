@@ -5,7 +5,7 @@ export const shopSchema = yup.object().shape({
     .string()
     .required("Shop name is required")
     .min(2, "Name must be at least 2 characters"),
-  owner: yup
+  ownerName: yup
     .string()
     .required("Owner name is required")
     .min(2, "Owner name must be at least 2 characters"),

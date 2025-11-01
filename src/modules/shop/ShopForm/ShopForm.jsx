@@ -34,7 +34,7 @@ const ShopForm = ({ type, values, onSubmit }) => {
           placeholder="Enter text"
           {...register("ownerName")}
           label="Shop Owner Name"
-          id="owner"
+          id="ownerName"
           error={errors?.owner?.message}
         />
         <BaseInput
