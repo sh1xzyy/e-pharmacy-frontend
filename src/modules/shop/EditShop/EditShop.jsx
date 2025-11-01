@@ -1,16 +1,13 @@
 import { useForm } from "react-hook-form";
 import Card from "../../../shared/ui/Card/Card";
 import css from "./EditShop.module.css";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { shopSchema } from "../schemas/shopSchema";
 import ShopForm from "../ShopForm/ShopForm";
+import { useSelector } from "react-redux";
+import { selectShop } from "../../../entities/shop/selectors";
 
 const EditShop = () => {
-  //   ? "This information will be displayed publicly so be careful what you share."
-
-  const { reset } = useForm({
-    resolver: yupResolver(shopSchema),
-  });
+  const shop = useSelector(selectShop);
+  const { reset } = useForm();
 
   const onSubmit = async (values) => {
     try {
@@ -31,7 +28,7 @@ const EditShop = () => {
         </p>
       </div>
 
-      <ShopForm type="editShop" onSubmit={onSubmit} />
+      <ShopForm type="editShop" values={shop} onSubmit={onSubmit} />
     </Card>
   );
 };

@@ -7,13 +7,14 @@ import Button from "../../../shared/ui/Button/Button";
 import { useState } from "react";
 import clsx from "clsx";
 
-const ShopForm = ({ type, onSubmit }) => {
+const ShopForm = ({ type, values, onSubmit }) => {
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(shopSchema),
+    defaultValues: values,
   });
   const [selectedRadio, setSelectedRadio] = useState("yes");
 
@@ -26,15 +27,15 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("name")}
           label="Shop Name"
           id="name"
-          error={errors?.name}
+          error={errors?.name?.message}
         />
         <BaseInput
           variant="normal"
           placeholder="Enter text"
-          {...register("owner")}
+          {...register("ownerName")}
           label="Shop Owner Name"
           id="owner"
-          error={errors?.owner}
+          error={errors?.owner?.message}
         />
         <BaseInput
           variant="normal"
@@ -42,7 +43,7 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("email")}
           label="Email address"
           id="email"
-          error={errors?.email}
+          error={errors?.email?.message}
         />
         <BaseInput
           variant="normal"
@@ -50,7 +51,7 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("phone")}
           label="Phone Number"
           id="phone"
-          error={errors?.phone}
+          error={errors?.phone?.message}
         />
         <BaseInput
           variant="normal"
@@ -58,7 +59,7 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("address")}
           label="Street address"
           id="address"
-          error={errors?.address}
+          error={errors?.address?.message}
         />
         <BaseInput
           variant="normal"
@@ -66,7 +67,7 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("city")}
           label="City"
           id="city"
-          error={errors?.city}
+          error={errors?.city?.message}
         />
         <BaseInput
           variant="normal"
@@ -74,7 +75,7 @@ const ShopForm = ({ type, onSubmit }) => {
           {...register("zip")}
           label="Zip / Postal"
           id="zip"
-          error={errors?.zip}
+          error={errors?.zip?.message}
         />
       </div>
 
@@ -87,7 +88,7 @@ const ShopForm = ({ type, onSubmit }) => {
               <input
                 className="visually-hidden"
                 type="radio"
-                name="deliverySystem"
+                {...register("ownDeliverySystem")}
                 id={option}
                 value={option}
                 checked={selectedRadio === option}
